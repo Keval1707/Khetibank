@@ -6,7 +6,7 @@ const fs = require('fs');
 
 // Initialize Express app
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Serve static files
 app.use(express.static('public'));
@@ -111,6 +111,6 @@ app.get('/download', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`server IP:  http://localhost:${PORT}\n`);
 });
