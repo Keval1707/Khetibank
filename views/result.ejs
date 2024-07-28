@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Results</h1>
+  
+  <% if (Object.keys(recruiterCodeCounts).length > 0) { %>
+    <h2>Recruiter Code Counts</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Recruiter Code</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const [key, count] of Object.entries(recruiterCodeCounts)) { %>
+          <tr>
+            <td><%= key %></td>
+            <td><%= count %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% } %>
+  
+  <h2>Application Code Counts</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Application Code</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const [key, count] of Object.entries(applicationCodeCounts)) { %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= count %></td>
+        </tr>
+      <% } %>
+      <tr>
+        <td>Total</td>
+        <td><%= totalApplicationCodeCount %></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2>Applications Received by Date</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const [key, count] of Object.entries(applicationsReceivedByDate)) { %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= count %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  
+  <p><a href="/download">Download counts.xlsx</a></p>
+</body>
+</html>
